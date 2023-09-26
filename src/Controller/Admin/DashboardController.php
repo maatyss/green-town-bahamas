@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\CRUD\PartyCrudController;
 use App\Entity\Party;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -20,6 +21,7 @@ class DashboardController extends AbstractDashboardController
 
     }
 
+//    #[IsGranted('ROLE_ADMIN', 'ROLE_EMPLOYEE')]
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
@@ -39,6 +41,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToRoute('Accueil', 'fa fa-home', 'app');
-        yield MenuItem::linkToCrud('Soirée', '', Party::class);
+        yield MenuItem::linkToCrud('Soirée', 'fa fa-wine-bottle', Party::class);
+
+//        if(in_array('ROLE_RH', $this->getUser()->getRoles())){
+            yield MenuItem::linkToCrud('User', 'fa fa-users', User::class);
+//        }
     }
 }

@@ -12,32 +12,42 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
     <body>
+        {% block header %}
+            <header class="flex flex-col justify-between gap-y-10 pt-5 pb-16 py-10 uppercase font-extrabold">
+                <div class="flex flex-row justify-between px-10">
+                    <p class="text-xs">bahamas.smartotter.fr</p>
+                    <a class="hover:cursor-pointer" href="">
+                        <img class="" src="" alt="logo">
+                    </a>
+                    {% if app.user %}
+                        <a class="hover:underline" href="{{path('app_admin')}}">admin</a>
+                    {% else %}
+                        <a class="hover:underline" href="{{path('app_login')}}"><ion-icon name="people-circle-outline"></ion-icon></a>
+                    {% endif %}
+                </div>
 
-    <header class="flex flex-col justify-between gap-y-10 pt-5 pb-16 py-10 uppercase font-extrabold">
-        <div class="flex flex-row justify-between px-10">
-            <p class="text-xs">bahamas.smartotter.fr</p>
-            <a class="hover:cursor-pointer" href="">
-                <img class="" src="" alt="logo">
-            </a>
-            <a class="hover:underline" href="{{path('app_admin')}}">admin</a>
-        </div>
+                <nav class="flex flex-row justify-around text-3xl">
+                    <a class="hover:underline" href="{{path('app')}}">accueil</a>
+                    <a class="hover:underline" href="{{path('app_events')}}">evenements</a>
+                    <a class="hover:underline" href="">galerie</a>
+                    <a class="hover:underline" href="">carte</a>
+                    <a class="hover:underline" href="">contact</a>
+                </nav>
+            </header>
+        {% endblock %}
 
-        <nav class="flex flex-row justify-around text-3xl">
-            <a class="hover:underline" href="{{path('app')}}">accueil</a>
-            <a class="hover:underline" href="{{path('app_events')}}">evenements</a>
-            <a class="hover:underline" href="">galerie</a>
-            <a class="hover:underline" href="">carte</a>
-            <a class="hover:underline" href="">contact</a>
-        </nav>
-    </header>
 
         {% block body %}{% endblock %}
 
-    <footer>
+        {% block footer %}
+            <footer>
 
-    </footer>
+            </footer>
+        {% endblock %}
 
     </body>
 </html>

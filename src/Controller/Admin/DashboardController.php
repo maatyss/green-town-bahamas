@@ -46,5 +46,6 @@ class DashboardController extends AbstractDashboardController
         if(in_array('ROLE_RH', $this->getUser()->getRoles())){
             yield MenuItem::linkToCrud('User', 'fa fa-users', User::class);
         }
+        yield MenuItem::linkToLogout('Deconnexion', 'fa fa-right-from-bracket');
     }
 }

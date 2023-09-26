@@ -39,20 +39,18 @@ class PartyRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Party[] Returns an array of Party objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Party[] Returns all displayable Party
+     */
+    public function FindAllDisplayedParty(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.isDisplayed = true')
+            ->orderBy('p.startAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Party
 //    {

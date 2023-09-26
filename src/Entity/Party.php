@@ -37,8 +37,11 @@ class Party
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $isDisplayed;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'parties')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'parties')]
     private $creator;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cover = null;
 
     public function getId(): ?int
     {
@@ -141,14 +144,26 @@ class Party
         return $this;
     }
 
-    public function getCreator(): ?user
+    public function getCreator(): ?User
     {
         return $this->creator;
     }
 
-    public function setCreator(?user $creator): self
+    public function setCreator(?User $creator): self
     {
         $this->creator = $creator;
+
+        return $this;
+    }
+
+    public function getcover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setcover(?string $cover): static
+    {
+        $this->cover = $cover;
 
         return $this;
     }

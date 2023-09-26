@@ -16,9 +16,14 @@
     <body>
 
     <header class="flex flex-col justify-between gap-y-10 pt-5 pb-16 py-10 uppercase font-extrabold">
-        <a class="self-center hover:cursor-pointer" href="">
-            <img class="" src="" alt="logo">
-        </a>
+        <div class="flex flex-row justify-between px-10">
+            <p class="text-xs">bahamas.smartotter.fr</p>
+            <a class="hover:cursor-pointer" href="">
+                <img class="" src="" alt="logo">
+            </a>
+            <a class="hover:underline" href="{{path('app_admin')}}">admin</a>
+        </div>
+
         <nav class="flex flex-row justify-around text-3xl">
             <a class="hover:underline" href="{{path('app')}}">accueil</a>
             <a class="hover:underline" href="{{path('app_events')}}">evenements</a>

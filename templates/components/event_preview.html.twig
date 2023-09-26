@@ -3,13 +3,19 @@
     <img src="https://cdn.discordapp.com/attachments/1101648305747927220/1154837620485005483/image.png?ex=6513c318&is=65127198&hm=9279f4f800240e843b627b91007495a6db02c5c4633cedaaed6c5bfcc60f74ea&" alt="affiche_event">
 
     <div class="flex flex-col gap-5 w-full">
-        <h3 class="text-center text-2xl font-medium uppercase">Nom de la soirée</h3>
+        <h3 class="text-center text-2xl font-medium uppercase">{{ party.name }}</h3>
         <div class="flex flex-row justify-between">
-            <p class="">JJ/MM</p>
-            <p class="">Prix entrée</p>
+            <p class="">{{ party.startAt | date('d/m') }}</p>
+            <p class=""> Entréee
+                {% if party.entryPrice == 0 %}
+                    gratuite
+                {% else %}
+                à {{ party.entryPrice}}$
+                {% endif %}
+            </p>
         </div>
         <div class="bg-amber-400 h-1 w-full" content=""></div>
-        <p class="text-justify">Présentation de la soirée en quelques lignes.</p>
+        <p class="text-justify">{{ party.description }}</p>
         <button>
             Réserver
         </button>

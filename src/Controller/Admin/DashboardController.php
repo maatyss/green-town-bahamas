@@ -21,7 +21,7 @@ class DashboardController extends AbstractDashboardController
 
     }
 
-//    #[IsGranted('ROLE_ADMIN', 'ROLE_EMPLOYEE')]
+    #[IsGranted('ROLE_ADMIN', 'ROLE_EMPLOYEE', 'ROLE_RH')]
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
@@ -43,8 +43,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Accueil', 'fa fa-home', 'app');
         yield MenuItem::linkToCrud('Soirée', 'fa fa-wine-bottle', Party::class);
 
-//        if(in_array('ROLE_RH', $this->getUser()->getRoles())){
+        if(in_array('ROLE_RH', $this->getUser()->getRoles())){
             yield MenuItem::linkToCrud('User', 'fa fa-users', User::class);
-//        }
+        }
     }
 }

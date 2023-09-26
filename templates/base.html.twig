@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bahamas GreenTown{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -14,6 +14,25 @@
         {% endblock %}
     </head>
     <body>
+
+    <header class="flex flex-col justify-between gap-y-10 pt-5 pb-16 py-10 uppercase font-extrabold">
+        <a class="self-center hover:cursor-pointer" href="">
+            <img class="" src="" alt="logo">
+        </a>
+        <nav class="flex flex-row justify-around text-3xl">
+            <a class="hover:underline" href="{{path('app')}}">accueil</a>
+            <a class="hover:underline" href="{{path('app_events')}}">evenements</a>
+            <a class="hover:underline" href="">galerie</a>
+            <a class="hover:underline" href="">carte</a>
+            <a class="hover:underline" href="">contact</a>
+        </nav>
+    </header>
+
         {% block body %}{% endblock %}
+
+    <footer>
+
+    </footer>
+
     </body>
 </html>

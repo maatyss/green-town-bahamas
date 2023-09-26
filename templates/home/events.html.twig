@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <main class="mt-16">
+
+        <section>
+            <h1 class="text-center text-6xl font-bold uppercase">
+                evénéments
+            </h1>
+        </section>
+
+        <section class="grid grid-cols-3 gap-20 px-20 mt-56">
+
+            {% for i in 1..10 %}
+
+                {% include 'components/event_preview.html.twig' %}
+
+            {% endfor %}
+
+        </section>
+
+
+    </main>
+
+{% endblock %}
